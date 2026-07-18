@@ -11,7 +11,7 @@
 
     // Configuration check
     if (typeof clarityConsent === 'undefined') {
-        console.warn('Clarity Consent Auto: Configuration not found - plugin may not be properly configured');
+        console.warn('Silent Consent for Microsoft Clarity: Configuration not found - plugin may not be properly configured');
         return;
     }
 
@@ -20,7 +20,7 @@
 
     function debugLog(message, data) {
         if (DEBUG) {
-            console.log('[Clarity Consent Auto]', message, data || '');
+            console.log('[Silent Consent for Microsoft Clarity]', message, data || '');
         }
     }
 
@@ -46,7 +46,7 @@
                 applyConsent();
             } else if (attempts >= maxAttempts) {
                 clearInterval(checkInterval);
-                console.warn('Clarity Consent Auto: Microsoft Clarity not found after 10 seconds - consent not applied');
+                console.warn('Silent Consent for Microsoft Clarity: Microsoft Clarity not found after 10 seconds - consent not applied');
             }
         }, 100); // Check every 100ms
     }
@@ -78,7 +78,7 @@
             }
 
         } catch (error) {
-            console.error('Clarity Consent Auto: Error applying consent', error);
+            console.error('Silent Consent for Microsoft Clarity: Error applying consent', error);
         }
     }
 
@@ -86,7 +86,7 @@
      * Initialize the consent layer
      */
     function init() {
-        debugLog('Initializing Clarity Consent Layer');
+        debugLog('Initializing Silent Consent Layer');
 
         // Check if we're in the admin area (skip consent)
         if (document.body && document.body.classList.contains('wp-admin')) {
