@@ -1,7 +1,7 @@
 /**
- * Clarity Consent Layer - Automatic consent injection
- * Version: 2.0.1
- * 
+ * Silent Consent for Microsoft Clarity - Automatic consent injection
+ * Version: 2.1.0
+ *
  * This script waits for Microsoft Clarity to load and then automatically
  * applies the configured consent settings without interfering with the
  * original Clarity implementation.

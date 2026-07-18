@@ -1,18 +1,18 @@
-=== Clarity Consent Auto ===
+=== Silent Consent for Microsoft Clarity ===
 Contributors: gioxx
 Tags: clarity, microsoft, gdpr, privacy, tracking
 Donate link: https://ko-fi.com/gioxx
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.1
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Automatic consent layer for Microsoft Clarity - grants consent automatically for internal websites.
+Automatic, silent consent layer for the official Microsoft Clarity plugin - grants consent automatically for internal websites.
 
 == Description ==
-Clarity Consent Auto is a lightweight consent layer that works on top of the official Microsoft Clarity plugin. It automatically applies consent settings to Microsoft Clarity without interfering with the original plugin configuration.
+Silent Consent for Microsoft Clarity is a lightweight consent layer that works on top of the official Microsoft Clarity plugin. It automatically applies consent settings to Microsoft Clarity without interfering with the original plugin configuration.
 The plugin is designed and developed only and exclusively for protected, corporate websites, cases where acceptance of cookies is not strictly necessary and against European regulation. The responsibility in case of misuse with respect to the European regulation, lies with the end administrator (who chooses to install and use this plugin).
 
 **Key Features:**
@@ -33,22 +33,22 @@ The plugin is designed and developed only and exclusively for protected, corpora
 **How it works:**
 1. Install and activate the official Microsoft Clarity plugin
 2. Configure Microsoft Clarity with your Project ID
-3. Install Clarity Consent Auto
+3. Install Silent Consent for Microsoft Clarity
 4. Configure your consent preferences (Grant/Deny for Ad Storage and Analytics Storage)
 5. The plugin automatically applies consent to Clarity on page load
 
-**Important:** This plugin requires the official Microsoft Clarity plugin to be installed and active. It acts as a consent layer and does not replace the Microsoft Clarity functionality.
+**Important:** This plugin requires the official Microsoft Clarity plugin to be installed and active. It acts as a consent layer and does not replace the Microsoft Clarity functionality. It is not affiliated with or endorsed by Microsoft.
 
 == Installation ==
 1. Install and activate the official **Microsoft Clarity** plugin from the WordPress repository
 2. Configure Microsoft Clarity with your Project ID
-3. Download and install **Clarity Consent Auto**
+3. Download and install **Silent Consent for Microsoft Clarity**
 4. Activate the plugin
 5. Go to Settings > Clarity Consent to configure your consent preferences
 6. The consent will be automatically applied to all Clarity tracking
 
 **Manual Installation:**
-1. Upload the plugin files to the `/wp-content/plugins/clarity-consent-auto/` directory
+1. Upload the plugin files to the `/wp-content/plugins/silent-consent-clarity/` directory
 2. Activate the plugin through the 'Plugins' screen in WordPress
 3. Use the Settings > Clarity Consent screen to configure the plugin
 
@@ -72,6 +72,9 @@ The plugin provides technical consent management, but GDPR compliance depends on
 = Which languages are supported? =
 Currently English and Italian are included. The plugin uses WordPress translation system, so additional languages can be easily added.
 
+= Is this plugin affiliated with Microsoft? =
+No. "Microsoft Clarity" is a trademark of Microsoft Corporation. This plugin is an independent, unaffiliated add-on that only reads the configuration of the official Microsoft Clarity plugin.
+
 == Screenshots ==
 1. Main plugin configuration page showing Microsoft Clarity status and consent settings
 2. Setup instructions when Microsoft Clarity plugin is not active
@@ -79,6 +82,11 @@ Currently English and Italian are included. The plugin uses WordPress translatio
 4. Status information showing detected Project ID and consent layer status
 
 == Changelog ==
+
+= 2.1.0 =
+* Renamed the plugin to "Silent Consent for Microsoft Clarity" (slug: silent-consent-clarity) to address a WordPress.org trademark review comment about the previous name/slug placing "Clarity" at the start
+* Refactored the single-file plugin into includes/class-scc-*.php (detector, settings, frontend, admin page), following the same structure used across the author's other plugins
+* No changes to stored option names; existing installations keep their saved consent settings across the rename
 
 = 2.0.1 =
 * Initial release in WordPress plugin directory
@@ -91,8 +99,11 @@ Currently English and Italian are included. The plugin uses WordPress translatio
 
 == Upgrade Notice ==
 
+= 2.1.0 =
+Plugin renamed to "Silent Consent for Microsoft Clarity" (new slug: silent-consent-clarity) following a WordPress.org naming/trademark review. Your consent settings are preserved.
+
 = 2.0.1 =
-Initial release. Install the Microsoft Clarity plugin first, then configure Clarity Consent Auto for automatic consent management.
+Initial release. Install the Microsoft Clarity plugin first, then configure Silent Consent for Microsoft Clarity for automatic consent management.
 
 == Developer Notes ==
 

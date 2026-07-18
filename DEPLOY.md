@@ -1,4 +1,4 @@
-# 🚀 Deployment Instructions for Clarity Consent Auto
+# 🚀 Deployment Instructions for Silent Consent for Microsoft Clarity
 
 This project uses **GitHub Actions** to automate the deployment of the plugin to the WordPress.org repository.
 
@@ -9,8 +9,8 @@ Follow this guide carefully when releasing a new version.
 ## ✏️ Step 1: Prepare the plugin for release
 
 - Update the **Stable tag** field in `readme.txt` to the new version number (e.g., `Stable tag: 1.7`).
-- Add the new version's **changelog** under the `== Changelog ==` section in `readme.txt`.
-- Update the plugin's **Version** header inside the main PHP file (`clarity-consent-auto.php`) if needed.
+- Add the new version's **changelog** under the `== Changelog ==` section in `readme.txt` (and `CHANGELOG.md`).
+- Update the plugin's **Version** header inside the main PHP file (`silent-consent-clarity.php`) and the `SCC_VERSION` constant if needed.
 - Commit and push your changes to GitHub.
 
 Example:
