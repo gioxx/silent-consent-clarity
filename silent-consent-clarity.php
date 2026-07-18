@@ -11,7 +11,7 @@
  * Plugin Name:       Silent Consent for Microsoft Clarity
  * Plugin URI:        https://go.gioxx.org/silentconsentclarity
  * Description:       Consent layer for Microsoft Clarity - automatically grants consent using existing Clarity configuration.
- * Version:           2.1.0
+ * Version:           2.1.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Gioxx
@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SCC_VERSION', '2.1.0' );
+define( 'SCC_VERSION', '2.1.1' );
 define( 'SCC_PLUGIN_FILE', __FILE__ );
 define( 'SCC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SCC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

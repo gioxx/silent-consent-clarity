@@ -2,6 +2,13 @@
 
 All notable changes to this plugin are documented in this file.
 
+## [2.1.1] - 2026-07-18
+
+- Renamed WP.org asset files (banner/icon) to use a literal `x` instead of `×` in dimensions, required for SVN asset recognition.
+- Fixed stale Italian translation strings (`languages/silent-consent-clarity-it_IT.po`/`.mo`) left over from the plugin rename.
+- Fixed leftover "Clarity Consent Auto" strings in front-end console logging (`js/silent-consent-clarity.js`).
+- Added `.github/workflows/release.yml` to build and attach a plugin zip to GitHub releases.
+
 ## [2.1.0] - 2026-07-18
 
 - Renamed the plugin to "Silent Consent for Microsoft Clarity" (slug: `silent-consent-clarity`, text domain: `silent-consent-clarity`), addressing a WordPress.org pre-review comment about the previous name/slug ("Clarity Consent Auto" / `clarity-consent-auto`) placing the "Clarity" trademark at the start of the name.

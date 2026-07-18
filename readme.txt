@@ -5,7 +5,7 @@ Donate link: https://ko-fi.com/gioxx
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,11 @@ No. "Microsoft Clarity" is a trademark of Microsoft Corporation. This plugin is 
 
 == Changelog ==
 
+= 2.1.1 =
+* Fixed WordPress.org asset filenames (banner/icon) to use a literal "x" instead of "×" in dimensions, as required for SVN asset recognition
+* Fixed stale Italian translation strings left over from the rename
+* Added GitHub Actions workflow to build and attach a release zip on GitHub
+
 = 2.1.0 =
 * Renamed the plugin to "Silent Consent for Microsoft Clarity" (slug: silent-consent-clarity) to address a WordPress.org trademark review comment about the previous name/slug placing "Clarity" at the start
 * Refactored the single-file plugin into includes/class-scc-*.php (detector, settings, frontend, admin page), following the same structure used across the author's other plugins
@@ -98,6 +103,9 @@ No. "Microsoft Clarity" is a trademark of Microsoft Corporation. This plugin is 
 * Debug information panel for troubleshooting
 
 == Upgrade Notice ==
+
+= 2.1.1 =
+Minor fixes: WP.org asset filenames, Italian translation strings, and a new GitHub release workflow. No functional changes.
 
 = 2.1.0 =
 Plugin renamed to "Silent Consent for Microsoft Clarity" (new slug: silent-consent-clarity) following a WordPress.org naming/trademark review. Your consent settings are preserved.
