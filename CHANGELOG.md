@@ -2,6 +2,10 @@
 
 All notable changes to this plugin are documented in this file.
 
+## [2.1.2] - 2026-07-19
+
+- Added the `Release Asset: true` plugin header so Git Updater installs the zip attached to the GitHub Release instead of the raw `main` branch zip.
+
 ## [2.1.1] - 2026-07-18
 
 - Renamed WP.org asset files (banner/icon) to use a literal `x` instead of `×` in dimensions, required for SVN asset recognition.
