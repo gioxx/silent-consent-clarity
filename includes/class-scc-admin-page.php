@@ -17,7 +17,41 @@ class SCC_Admin_Page {
 
 	public function init() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'show_status_notice' ) );
+	}
+
+	/**
+	 * Load the admin stylesheet on the plugin's settings page only.
+	 *
+	 * @param string $hook Admin page hook suffix.
+	 */
+	public function enqueue_assets( $hook ) {
+		if ( 'settings_page_silent-consent-clarity' !== $hook ) {
+			return;
+		}
+		wp_enqueue_style( 'scc-admin', SCC_PLUGIN_URL . 'assets/css/admin.css', array(), SCC_VERSION );
+	}
+
+	/**
+	 * Links under the plugin description on the Plugins screen: the GitHub
+	 * repository (unless the row already links to it) and the author's gallery.
+	 *
+	 * @param string[] $links Row meta links.
+	 * @param string   $file  Plugin basename of the row.
+	 * @return string[]
+	 */
+	public function plugin_row_meta( $links, $file ) {
+		if ( plugin_basename( SCC_PLUGIN_FILE ) !== $file ) {
+			return $links;
+		}
+		if ( false === strpos( implode( ' ', (array) $links ), 'https://github.com/gioxx/silent-consent-clarity' ) ) {
+			$links[] = '<a href="https://github.com/gioxx/silent-consent-clarity" target="_blank" rel="noopener noreferrer">' . esc_html__( 'View on GitHub', 'silent-consent-clarity' ) . '</a>';
+		}
+		$links[] = '<a href="https://wordpress.gioxx.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins by Gioxx', 'silent-consent-clarity' ) . '</a>';
+
+		return $links;
 	}
 
 	public function add_admin_menu() {
@@ -186,28 +220,54 @@ class SCC_Admin_Page {
 				</form>
 			<?php endif; ?>
 
-			<div class="footer" style="padding-top: 35px;">
-				<hr>
-				<span class="dashicons dashicons-superhero"></span> Gioxx, <?php echo esc_html( gmdate( 'Y' ) ); ?> &#x2022;
-				<span class="dashicons dashicons-wordpress"></span>
-				<a href="<?php echo esc_url( 'https://go.gioxx.org/silentconsentclarity' ); ?>">Gioxx.org</a> &#x2022;
-				<span class="dashicons dashicons-heart"></span>
-				<a href="<?php echo esc_url( 'https://github.com/gioxx/silent-consent-clarity' ); ?>">GitHub</a>
+<div class="scc-footer">
+				<div class="scc-footer__cards">
+					<div class="scc-footer__card scc-footer__card--plugin">
+						<span class="scc-footer__badge"><img src="<?php echo esc_url( SCC_PLUGIN_URL . 'assets/images/plugin-icon.svg' ); ?>" width="20" height="20" alt=""></span>
+						<div class="scc-footer__body">
+							<p class="scc-footer__eyebrow">
+								<?php
+								/* translators: %s: plugin version number */
+								printf( esc_html__( 'Version %s', 'silent-consent-clarity' ), esc_html( SCC_VERSION ) );
+								?>
+							</p>
+							<h2 class="scc-footer__title">Silent Consent for Microsoft Clarity</h2>
+							<p class="scc-footer__text"><?php esc_html_e( 'Automatically grants Microsoft Clarity consent on internal and corporate sites.', 'silent-consent-clarity' ); ?></p>
+							<p class="scc-footer__text">
+								<?php
+								printf(
+									/* translators: 1: link to the author's site, 2: link to the plugin repository */
+									esc_html__( 'Made by %1$s. Source code on %2$s.', 'silent-consent-clarity' ),
+									'<a href="https://gioxx.org" target="_blank" rel="noopener noreferrer">Gioxx</a>',
+									'<a href="https://github.com/gioxx/silent-consent-clarity" target="_blank" rel="noopener noreferrer">GitHub</a>'
+								);
+								?>
+							</p>
+							<a class="button scc-footer__action" href="https://github.com/gioxx/silent-consent-clarity" target="_blank" rel="noopener noreferrer">
+								<?php esc_html_e( 'View on GitHub', 'silent-consent-clarity' ); ?>
+								<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'silent-consent-clarity' ); ?></span>
+							</a>
+						</div>
+					</div>
+					<div class="scc-footer__card scc-footer__card--gallery">
+						<img class="scc-footer__logo" src="<?php echo esc_url( SCC_PLUGIN_URL . 'assets/images/gioxx-plugins.svg' ); ?>" width="40" height="40" alt="">
+						<div class="scc-footer__body">
+							<p class="scc-footer__eyebrow">gioxx/WordPress</p>
+							<h2 class="scc-footer__title"><?php esc_html_e( 'Discover more plugins by Gioxx', 'silent-consent-clarity' ); ?></h2>
+							<p class="scc-footer__text"><?php esc_html_e( 'A curated collection of open-source plugins for security, analytics, performance and integrations.', 'silent-consent-clarity' ); ?></p>
+							<a class="button scc-footer__action" href="https://wordpress.gioxx.org/" target="_blank" rel="noopener noreferrer">
+								<?php esc_html_e( 'Browse the plugins', 'silent-consent-clarity' ); ?>
+								<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'silent-consent-clarity' ); ?></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<p class="description scc-trademark-notice">
+					<?php esc_html_e( 'All trademarks mentioned are the property of their respective owners. Third-party trademarks, product names, trade names, corporate names and companies mentioned may be trademarks of their respective owners or registered trademarks of other companies and have been used for explanatory purposes only and for the benefit of the owner, without any intent to infringe existing copyright.', 'silent-consent-clarity' ); ?>
+				</p>
 			</div>
 		</div>
 
-		<style>
-		.card {
-			background: #fff;
-			border: 1px solid #ccd0d4;
-			padding: 15px;
-			border-radius: 4px;
-		}
-		.card .title {
-			margin-top: 0;
-			font-size: 16px;
-		}
-		</style>
 		<?php
 	}
 }
