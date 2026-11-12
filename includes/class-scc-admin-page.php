@@ -49,7 +49,7 @@ class SCC_Admin_Page {
 		if ( false === strpos( implode( ' ', (array) $links ), 'https://github.com/gioxx/silent-consent-clarity' ) ) {
 			$links[] = '<a href="https://github.com/gioxx/silent-consent-clarity" target="_blank" rel="noopener noreferrer">' . esc_html__( 'View on GitHub', 'silent-consent-clarity' ) . '</a>';
 		}
-		$links[] = '<a href="https://wordpress.gioxx.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins by Gioxx', 'silent-consent-clarity' ) . '</a>';
+		$links[] = '<a href="https://wordpress.gxware.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins by Gioxx', 'silent-consent-clarity' ) . '</a>';
 
 		return $links;
 	}
@@ -255,7 +255,7 @@ class SCC_Admin_Page {
 							<p class="scc-footer__eyebrow">gioxx/WordPress</p>
 							<h2 class="scc-footer__title"><?php esc_html_e( 'Discover more plugins by Gioxx', 'silent-consent-clarity' ); ?></h2>
 							<p class="scc-footer__text"><?php esc_html_e( 'A curated collection of open-source plugins for security, analytics, performance and integrations.', 'silent-consent-clarity' ); ?></p>
-							<a class="button scc-footer__action" href="https://wordpress.gioxx.org/" target="_blank" rel="noopener noreferrer">
+							<a class="button scc-footer__action" href="https://wordpress.gxware.org/" target="_blank" rel="noopener noreferrer">
 								<?php esc_html_e( 'Browse the plugins', 'silent-consent-clarity' ); ?>
 								<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'silent-consent-clarity' ); ?></span>
 							</a>
